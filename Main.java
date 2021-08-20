@@ -9,12 +9,8 @@ public class Main {
 
             // 書き込みファイル名
             String filename = "syain.csv";
-            // テキストで書き込み為の俊美
-            BufferedWriter bw = new BufferedWriter(
-                    new OutputStreamWriter(
-                        new FileOutputStream(filename), "UTF8"
-                    ) 
-            );			
+            // テキストで書き込み為の準備( SHIFT_JIS )
+            BufferedWriter bw = new BufferedWriter( new OutputStreamWriter( new FileOutputStream(filename), "MS932" ) );			
 
             // URL文字列
             String str = "https://lightbox.sakura.ne.jp/demo/json/syain_csv.php";
@@ -27,8 +23,8 @@ public class Main {
             // 接続 
             http.connect();
             
-            // UTF-8 でリーダーを作成
-            InputStreamReader isr = new InputStreamReader(http.getInputStream(), "UTF8");   
+            // SHIFT_JIS でリーダーを作成
+            InputStreamReader isr = new InputStreamReader(http.getInputStream(), "MS932" );   
             // 行単位で読み込む為の準備   
             BufferedReader br = new BufferedReader(isr);   
             // 読込み用
@@ -40,10 +36,10 @@ public class Main {
             }
 
             // 閉じる   
-            br.close();                 // BufferedReader
-            isr.close();                 // InputStreamReader
-            http.disconnect();     // HttpURLConnection
-            bw.close();                // BufferedWriter
+            br.close();
+            isr.close();
+            http.disconnect();
+            bw.close();
 
         }
         catch( Exception e ) {
