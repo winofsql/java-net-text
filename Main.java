@@ -8,7 +8,7 @@ public class Main {
         try {
 
             // 書き込みファイル名
-            String filename = "index.html";
+            String filename = "syain.csv";
             // テキストで書き込み為の俊美
             BufferedWriter bw = new BufferedWriter(
                     new OutputStreamWriter(
@@ -17,7 +17,7 @@ public class Main {
             );			
 
             // URL文字列
-            String str = "https://chips-webapp.ssl-lolipop.jp/app/jquery/jq-0704-06.html";
+            String str = "https://lightbox.sakura.ne.jp/demo/json/syain_csv.php";
             // ターゲット
             URL url = new URL( str );
             // 接続オブジェクト
